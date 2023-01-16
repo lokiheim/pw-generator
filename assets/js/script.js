@@ -93,7 +93,7 @@ var choiceArr = [];
 
 // Function to prompt user for password options
 function getPasswordOptions() {
-    var choiceArr = [];
+    choiceArr = [];
 
     characterLength = parseInt(prompt("How many characters would you like your password to be? (choose from 8 to 128 characters"));
 
@@ -116,18 +116,6 @@ function getPasswordOptions() {
     return true;
 }
 
-
-// Function for getting a random element from an array
-function getRandom(arr) {
-   if (correctPrompts) {
-    var newPassword = generatePassword();
-    passwordText.value = newPassword;  
-    
-  } else {
-    passwordText.value = ""; //error happening here
-  }
-}
-
 // Function to generate password with user input
 function generatePassword() {
   var password = "";
@@ -147,13 +135,13 @@ function writePassword() {
   var correctPrompts = getPasswordOptions(); //give a Booleen
   var passwordText = document.querySelector('#password');
 
-  // if (correctPrompts) {
-  //   var newPassword = generatePassword();
-  //   passwordText.value = newPassword;  
+  if (correctPrompts) {
+    var newPassword = generatePassword();
+    passwordText.value = newPassword;  
     
-  // } else {
-  //   passwordText.value = ""; //error happening here
-  // }
+  } else {
+    passwordText.value = ""; //error happening here
+  }
 }
 
 // Add event listener to generate button
