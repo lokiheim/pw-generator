@@ -25,6 +25,7 @@ for loops and if / else
 ## Website image
 
 ![Alt text](05-javascript-challenge-demo.png)
+![Alt text](Password%20Generator.png)
 
 ## Links
 
