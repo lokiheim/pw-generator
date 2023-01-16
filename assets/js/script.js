@@ -93,7 +93,8 @@ var choiceArr = [];
 
 // Function to prompt user for password options
 function getPasswordOptions() {
-    
+    var choiceArr = [];
+
     characterLength = parseInt(prompt("How many characters would you like your password to be? (choose from 8 to 128 characters"));
 
     if(isNaN(characterLength) || characterLength < 8 || characterLength > 128) {
@@ -131,28 +132,25 @@ var generateBtn = document.querySelector('#generate');
 
 // Write password to the #password input
 function writePassword() {
-  var password = generatePassword();
-  var passwordText = document.querySelector('#password');
+  var correctPrompts = getPasswordOptions(); //give a Booleen
 
-  passwordText.value = password;
+  if (correctPrompts) {
+    var password = generatePassword();
+    var passwordText = document.querySelector('#password');
+
+    passwordText.value = password;  
+  }
 }
 
 // Add event listener to generate button
 generateBtn.addEventListener('click', writePassword);
 
 // Pscode
-// =promt the user for pw Input ie pw length 8 to 128
-// =same if the want to included @ 1 of items in the 4 arrays
+
 // =have to valiate the Input
 // =display the pw on the text area so you can copy and paste
 
 
 
-
-
-
-// function generatePassword() {
-
-// }
 
 
