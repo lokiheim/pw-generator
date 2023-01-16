@@ -119,11 +119,23 @@ function getPasswordOptions() {
 
 // Function for getting a random element from an array
 function getRandom(arr) {
-
+   if (correctPrompts) {
+    var newPassword = generatePassword();
+    passwordText.value = newPassword;  
+    
+  } else {
+    passwordText.value = ""; //error happening here
+  }
 }
 
 // Function to generate password with user input
 function generatePassword() {
+  var password = "";
+  for (var i = 0; i < characterLength; i++) {
+    var randomIndex = Math.floor(Math.random() * choiceArr.length);
+    password = password + choiceArr[randomIndex];
+  }
+  return password;
 
 }
 
@@ -133,24 +145,16 @@ var generateBtn = document.querySelector('#generate');
 // Write password to the #password input
 function writePassword() {
   var correctPrompts = getPasswordOptions(); //give a Booleen
+  var passwordText = document.querySelector('#password');
 
-  if (correctPrompts) {
-    var password = generatePassword();
-    var passwordText = document.querySelector('#password');
-
-    passwordText.value = password;  
-  }
+  // if (correctPrompts) {
+  //   var newPassword = generatePassword();
+  //   passwordText.value = newPassword;  
+    
+  // } else {
+  //   passwordText.value = ""; //error happening here
+  // }
 }
 
 // Add event listener to generate button
 generateBtn.addEventListener('click', writePassword);
-
-// Pscode
-
-// =have to valiate the Input
-// =display the pw on the text area so you can copy and paste
-
-
-
-
-
